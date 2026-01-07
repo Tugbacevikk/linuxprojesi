@@ -1,28 +1,42 @@
 #!/bin/bash
 
-# Gerekli programlar sistemde var mı?
 check_dependencies() {
-    local missing=0
+    local missing=()
+
     for cmd in pandoc yad whiptail; do
-        if ! command -v "$cmd" &>/dev/null; then
-            echo "Eksik bağımlılık: $cmd"
-            missing=1
-        fi
+        command -v "$cmd" &>/dev/null || missing+=("$cmd")
     done
 
-    if [ $missing -eq 1 ]; then
+    if [ ${#missing[@]} -ne 0 ]; then
+        local msg="Eksik bağımlılıklar:\n${missing[*]}
+
+Kurulum için:
+sudo apt install pandoc yad whiptail"
+
+        if command -v yad &>/dev/null; then
+            yad --error --title="Bağımlılık Hatası" --text="$msg"
+        elif command -v whiptail &>/dev/null; then
+            whiptail --msgbox "$msg" 15 70
+        else
+            echo -e "$msg"
+        fi
         exit 1
     fi
 }
 
-# Pandoc ile dosya dönüştürme
+generate_output_filename() {
+    local input="$1"
+    local format="$2"
+    echo "${input%.*}.$format"
+}
+
 convert_file() {
     local input="$1"
     local output="$2"
 
-    if [ ! -f "$input" ]; then
-        return 1
-    fi
+    [ ! -f "$input" ] && return 1
+    [ -e "$output" ] && return 2
+    [ ! -w "$(dirname "$output")" ] && return 3
 
     pandoc "$input" -o "$output"
 }

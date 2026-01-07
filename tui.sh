@@ -1,19 +1,40 @@
 #!/bin/bash
 
 source ./core.sh
-
 check_dependencies
 
-INPUT_FILE=$(whiptail --inputbox "Giriş dosyasını yaz (örn: dosya.md):" 10 60 3>&1 1>&2 2>&3)
+# Giriş dosyası al
+INPUT_FILE=$(whiptail --inputbox "Giriş dosyasını yazınız (örn: dosya.md):" 10 60 3>&1 1>&2 2>&3)
 [ -z "$INPUT_FILE" ] && exit 0
 
-FORMAT=$(whiptail --inputbox "Çıkış formatı (pdf/docx/html):" 10 60 3>&1 1>&2 2>&3)
+# Çıkış formatı menüsü
+FORMAT=$(whiptail --menu "Çıkış formatını seçiniz:" 15 60 3 \
+"pdf" "PDF Dosyası" \
+"docx" "Word Dosyası" \
+"html" "HTML Dosyası" \
+3>&1 1>&2 2>&3)
+
 [ -z "$FORMAT" ] && exit 0
 
-OUTPUT_FILE="${INPUT_FILE%.*}.$FORMAT"
+# Çıktı dosyası adı
+OUTPUT_FILE=$(generate_output_filename "$INPUT_FILE" "$FORMAT")
 
-if convert_file "$INPUT_FILE" "$OUTPUT_FILE"; then
-    whiptail --msgbox "Dönüştürme başarılı:\n$OUTPUT_FILE" 10 60
-else
-    whiptail --msgbox "Dönüştürme başarısız!" 10 60
-fi
+# Dönüştürme
+convert_file "$INPUT_FILE" "$OUTPUT_FILE"
+RESULT=$?
+
+case $RESULT in
+  0)
+    whiptail --msgbox "Dönüştürme başarılı.\n\nOluşturulan dosya:\n$OUTPUT_FILE" 10 60
+    ;;
+  2)
+    whiptail --msgbox "Çıktı dosyası zaten mevcut:\n$OUTPUT_FILE" 10 60
+    ;;
+  3)
+    whiptail --msgbox "Çıktı dizinine yazma izni yok." 10 60
+    ;;
+  *)
+    whiptail --msgbox "Dönüştürme sırasında hata oluştu." 10 60
+    ;;
+esac
+

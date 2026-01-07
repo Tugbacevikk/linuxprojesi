@@ -71,8 +71,10 @@ pandoc-gui-project/
 ├── tui.sh
 └── README.md
 
-Sonuç
+## Sonuç
 Bu proje, Linux ortamında pandoc kullanarak belge dönüştürme işlemlerini
 kullanıcı dostu bir şekilde gerçekleştirmeyi amaçlamaktadır.
 GUI ve TUI desteği sayesinde farklı kullanım senaryolarına uygundur
+## yotube baglantısı için:
+https://youtu.be/esrOZHYFTBQ
 

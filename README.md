@@ -3,8 +3,8 @@ Bu proje, pandoc kullanarak kullanıcı tarafından seçilen dosyaları
 HTML, DOCX ve PDF formatlarına dönüştüren bir Linux uygulamasıdır.
 
 Uygulama hem grafik arayüz (GUI) hem de metin tabanlı arayüz (TUI) sunar.
-<img width="1280" height="800" alt="image" src="https://github.com/user-attachments/assets/db306979-2921-45bc-b401-e4028236d27b" />
-<img width="1223" height="777" alt="image" src="https://github.com/user-attachments/assets/93f6a384-2320-4bb1-a16a-0acebd79579d" />
+
+
 
 
 
@@ -30,7 +30,6 @@ whiptail
 bash
 
 LaTeX (pdflatex)
-
 
 ## Gerekli paketleri yüklemek için:
 
@@ -75,11 +74,42 @@ pandoc-gui-project/
 ├── gui.sh
 ├── tui.sh
 └── README.md
+## GUI (Grafiksel Arayüz)
+GUI sürümünde kullanıcı:
 
+Grafiksel dosya seçici ile dönüştürülecek dosyayı seçer
+
+Çıkış formatını listeden belirler
+
+Dönüştürme işlemini başlatır
+
+Sonuç bilgi penceresi ile kullanıcıya gösterilir
+
+GUI çalıştırmak için:
+
+bash gui.sh
+<img width="1280" height="800" alt="image" src="https://github.com/user-attachments/assets/db306979-2921-45bc-b401-e4028236d27b" />
+## TUI (Metin Tabanlı Arayüz)
+TUI sürümü, whiptail kullanılarak terminal üzerinde
+menü tabanlı ve etkileşimli bir kullanıcı arayüzü olarak geliştirilmiştir.
+
+TUI sürümünde kullanıcı:
+
+Dönüştürülecek dosyanın yolunu inputbox ile girer
+
+Çıkış formatını menüden seçer
+
+Dönüştürme sonucunu mesaj penceresinde görür
+
+TUI çalıştırmak için:
+
+bash tui.sh
+<img width="1223" height="777" alt="image" src="https://github.com/user-attachments/assets/93f6a384-2320-4bb1-a16a-0acebd79579d" />
 ## Sonuç
 Bu proje, Linux ortamında pandoc kullanarak belge dönüştürme işlemlerini
 kullanıcı dostu bir şekilde gerçekleştirmeyi amaçlamaktadır.
 GUI ve TUI desteği sayesinde farklı kullanım senaryolarına uygundur
+Bu proje pardus ortamında yazılmış ve test edilmiştir
 ## yotube baglantısı için:
 https://youtu.be/esrOZHYFTBQ
 

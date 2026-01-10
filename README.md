@@ -4,6 +4,8 @@ HTML, DOCX ve PDF formatlarına dönüştüren bir Linux uygulamasıdır.
 
 Uygulama hem grafik arayüz (GUI) hem de metin tabanlı arayüz (TUI) sunar.
 <img width="1280" height="800" alt="image" src="https://github.com/user-attachments/assets/db306979-2921-45bc-b401-e4028236d27b" />
+<img width="1223" height="777" alt="image" src="https://github.com/user-attachments/assets/93f6a384-2320-4bb1-a16a-0acebd79579d" />
+
 
 
 

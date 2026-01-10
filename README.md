@@ -26,7 +26,7 @@ bash
 
 LaTeX (pdflatex)
 
-Kurulum
+
 ## Gerekli paketleri yüklemek için:
 
 sudo apt update

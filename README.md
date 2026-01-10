@@ -3,7 +3,8 @@ Bu proje, pandoc kullanarak kullanıcı tarafından seçilen dosyaları
 HTML, DOCX ve PDF formatlarına dönüştüren bir Linux uygulamasıdır.
 
 Uygulama hem grafik arayüz (GUI) hem de metin tabanlı arayüz (TUI) sunar.
-<img width="758" height="523" alt="image" src="https://github.com/user-attachments/assets/07690c57-9acd-42c2-9810-f16043c3e492" />
+<img width="1280" height="800" alt="image" src="https://github.com/user-attachments/assets/db306979-2921-45bc-b401-e4028236d27b" />
+
 
 
 ## Özellikler

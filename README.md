@@ -6,9 +6,6 @@ Uygulama hem grafik arayüz (GUI) hem de metin tabanlı arayüz (TUI) sunar.
 
 
 
-
-
-
 ## Özellikler
 Dosyaları HTML, DOCX ve PDF formatlarına dönüştürme
 
@@ -105,10 +102,24 @@ TUI çalıştırmak için:
 
 bash tui.sh
 <img width="1223" height="777" alt="image" src="https://github.com/user-attachments/assets/93f6a384-2320-4bb1-a16a-0acebd79579d" />
+## PARDUS Uyumluluğu
+Uygulama, **PARDUS 23** ortamında test edilmiştir.
+GUI ve TUI sürümleri hatasız şekilde çalışmakta olup
+bağımlılık kontrolleri çalışma sırasında otomatik olarak yapılmaktadır.
+Eksik bağımlılık tespit edildiğinde kullanıcı bilgilendirilmektedir.
+
+Gerekli bağımlılıklar:
+- pandoc
+- yad
+- whiptail
+- texlive-latex-base
+
 ## Sonuç
 Bu proje, Linux ortamında pandoc kullanarak belge dönüştürme işlemlerini
 kullanıcı dostu bir şekilde gerçekleştirmeyi amaçlamaktadır.
-GUI ve TUI desteği sayesinde farklı kullanım senaryolarına uygundur
+
+GUI ve TUI desteği sayesinde farklı kullanım senaryolarına uygundur.
+
 Bu proje pardus ortamında yazılmış ve test edilmiştir
 ## yotube baglantısı için:
 https://youtu.be/esrOZHYFTBQ
